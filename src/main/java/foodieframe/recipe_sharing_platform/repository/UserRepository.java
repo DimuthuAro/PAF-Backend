@@ -1,10 +1,11 @@
 package foodieframe.recipe_sharing_platform.repository;
 
-import foodieframe.recipe_sharing_platform.model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import foodieframe.recipe_sharing_platform.model.User;
+
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
     // Spring Data JPA will automatically implement CRUD methods
 }
