@@ -5,6 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import foodieframe.recipe_sharing_platform.controller.ProductController;
+
 @SpringBootApplication
 @RestController
 public class RecipeSharingPlatformApplication {
@@ -13,9 +15,11 @@ public class RecipeSharingPlatformApplication {
 		SpringApplication.run(RecipeSharingPlatformApplication.class, args);
 	}
 
+	private final ProductController productController = new ProductController();
+
 	@GetMapping("/")
-	public String hello() {
-		return "Hello, World!";
+	public Object getAllProducts() {
+		return productController.getAllProducts();
 	}
 }
 
