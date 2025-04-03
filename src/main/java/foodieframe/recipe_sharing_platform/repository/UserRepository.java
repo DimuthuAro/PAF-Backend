@@ -7,5 +7,5 @@ import foodieframe.recipe_sharing_platform.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    // Spring Data JPA will automatically implement CRUD methods
+    User findByEmail(String email);
 }

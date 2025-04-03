@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -14,33 +15,26 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "UserID is required")
-    @Size(min = 3, max = 50, message = "UserID must be between 3 and 50 characters")
+    @NotNull(message = "UserID is required")
     private Long userID;
 
-    @NotBlank(message = "Image is required")
-    @Size(min = 6, message = "Image must be at least 6 characters long")
-    private String Image;
-
     @NotBlank(message = "Title is required")
-    @Size(min = 6, message = "Title must be at least 6 characters long")
-    private String Title;
+    @Size(min = 3, message = "Title must be at least 3 characters long")
+    private String title;
 
     @NotBlank(message = "Description is required")
-    @Size(min = 6, message = "Description must be at least 6 characters long")
-    private String Description;
+    @Size(min = 10, message = "Description must be at least 10 characters long")
+    private String description;
 
     @NotBlank(message = "Category is required")
-    @Size(min = 6, message = "Category must be at least 6 characters long")
-    private String Category;
-
-    @NotBlank(message = "Steps is required")
-    @Size(min = 6, message = "Steps must be at least 6 characters long")
-    private String Steps;
-
-    @NotBlank(message = "Tags is required")
-    @Size(min = 6, message = "Steps must be at least 6 characters long")
-    private String Tags;
+    private String category;
+    
+    private String image;
+    
+    @NotBlank(message = "Steps are required")
+    private String steps;
+    
+    private String tags;
 
     // Getters and Setters
     public Long getId() {
@@ -59,51 +53,51 @@ public class Post {
         this.userID = userID;
     }
 
-    public String getImage() {
-        return Image;
-    }
-
-    public void setImage(String image) {
-        Image = image;
-    }
-
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        this.category = category;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getSteps() {
-        return Steps;
+        return steps;
     }
 
     public void setSteps(String steps) {
-        Steps = steps;
+        this.steps = steps;
     }
 
     public String getTags() {
-        return Tags;
+        return tags;
     }
 
     public void setTags(String tags) {
-        Tags = tags;
+        this.tags = tags;
     }
 }
